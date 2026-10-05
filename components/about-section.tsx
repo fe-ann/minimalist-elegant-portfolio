@@ -46,12 +46,7 @@ export function AboutSection() {
             className={`space-y-6 transition-all duration-700 delay-100 text-center md:text-left ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
           >
             <p className="text-lg leading-relaxed text-muted-foreground">
-              I'm a multidisciplinary designer and developer with over 8 years of experience creating digital products
-              that people love to use. My approach combines strategic thinking with meticulous attention to detail.
-            </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              I believe great design is invisible—it just works. Whether I'm designing interfaces or writing code, I
-              focus on creating experiences that are both beautiful and functional.
+              I’m a BCA student and a Full Stack Developer with hands-on experience building AI-powered applica-tions, scalable backend systems, and real-time collaborative software. Experienced in designing backend architectures, REST APIs, authentication systems, PostgreSQL, MongoDB, Redis, and AI-powered ap-plications using Retrieval-Augmented Generation (RAG). Also contributing to ongoing computer vision research involving YOLO model fine-tuning and experimental analysis on confidential thermal imaging datasets.
             </p>
           </div>
 

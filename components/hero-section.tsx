@@ -66,7 +66,7 @@ export function HeroSection() {
         </p>
 
         <div className="flex flex-col items-center gap-3 mb-12 animate-fade-in-delay-3">
-          <p className="text-base md:text-lg font-medium">Murat Sahin</p>
+          <p className="text-base md:text-lg font-medium">Ansh Kumar</p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1.5">
               <MapPin className="w-4 h-4" />

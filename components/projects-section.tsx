@@ -8,9 +8,9 @@ export function ProjectsSection() {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
+      title: "Recall",
       tags: ["Web Design", "Development", "Branding"],
-      image: "/modern-ecommerce-website.png",
+      image: "/recall.png",
     },
     {
       title: "Mobile Banking App",

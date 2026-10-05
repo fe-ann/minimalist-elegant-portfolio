@@ -8,24 +8,19 @@ export function ExperienceSection() {
 
   const experiences = [
     {
-      title: "Lead Designer",
-      company: "Google",
-      period: "2022 - Present",
+      title: "Student Research Assistant (Computer Vision)",
+      company: "Galgotias University",
+      period: "2026 – Present",
+      description: ["Contribute to ongoing confidential computer vision research involving thermal image analysis under faculty supervision."]
     },
     {
-      title: "Senior Product Designer",
-      company: "Stripe",
-      period: "2020 - 2022",
-    },
-    {
-      title: "Product Designer",
-      company: "Airbnb",
-      period: "2018 - 2020",
-    },
-    {
-      title: "UI/UX Designer",
-      company: "Dropbox",
-      period: "2016 - 2018",
+      title: "Hackathon Experience",
+      company: "",
+      period: "",
+      description: [
+        "Participated in 6+ national hackathons focused on AI, full-stack development, and product engineer-ing.",
+        "Built rapid MVPs involving LLM-powered systems and backend services under 24–36 hour deadlines."
+      ]
     },
   ]
 
@@ -69,9 +64,18 @@ export function ExperienceSection() {
 
                 <div>
                   <h3 className="text-xl font-semibold mb-1">{exp.title}</h3>
-                  <p className="text-muted-foreground">
-                    {exp.company} | {exp.period}
-                  </p>
+                  {exp.company && exp.period && (
+                    <p className="text-muted-foreground mb-3">
+                      {exp.company} | {exp.period}
+                    </p>
+                  )}
+                  {exp.description && (
+                    <ul className="list-disc pl-5 text-muted-foreground space-y-1">
+                      {exp.description.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             ))}
