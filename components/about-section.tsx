@@ -9,10 +9,8 @@ export function AboutSection() {
   const skills = [
     "UI/UX Design",
     "Web Development",
-    "Branding",
-    "Prototyping",
+    "Model Fine-Tuning",
     "React & Next.js",
-    "Figma & Adobe Suite",
   ]
 
   useEffect(() => {
