@@ -1,50 +1,44 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
+import { Github, Link } from "lucide-react";
 
 export function ProjectsSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const projects = [
     {
       title: "Recall",
       tags: ["Web Design", "Development", "Branding"],
-      image: "/recall.png",
+      image: "/recall_architecture.jpeg",
+      github: "https://github.com/Ancch/recall",
+      link: "https://recall-wheat.vercel.app/",
     },
     {
-      title: "Mobile Banking App",
+      title: "Exless: CFD Trading Platform",
       tags: ["UI/UX", "Mobile", "Fintech"],
-      image: "/mobile-banking-app.png",
+      image: "/image.png",
+      github: "https://github.com/Ancch/exness_clone",
     },
-    {
-      title: "SaaS Dashboard",
-      tags: ["Web Design", "Data Viz", "SaaS"],
-      image: "/modern-dashboard-analytics.jpg",
-    },
-    {
-      title: "Brand Identity",
-      tags: ["Branding", "Logo Design", "Print"],
-      image: "/brand-identity-design-mockup.jpg",
-    },
-  ]
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true)
+          setIsVisible(true);
         }
       },
       { threshold: 0.1 },
-    )
+    );
 
     if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+      observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section id="projects" className="py-32 px-6 lg:px-8" ref={sectionRef}>
@@ -69,10 +63,40 @@ export function ProjectsSection() {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+
+              <div className="flex justify-between">
+                <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+
+                <div className="flex flex-wrap gap-2 justify-center md:justify-end">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 hover:bg-muted rounded-lg transition-colors"
+                    aria-label="GitHub"
+                  >
+                    <Github className="size-4" />
+                  </a>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 hover:bg-muted rounded-lg transition-colors"
+                      aria-label={`Visit ${project.title}`}
+                    >
+                      <Link className="size-4" />
+                    </a>
+                  )}
+                </div>
+              </div>
+
               <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="text-xs px-3 py-1 bg-muted text-muted-foreground rounded-full">
+                  <span
+                    key={tag}
+                    className="text-xs px-3 py-1 bg-muted text-muted-foreground rounded-full"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -82,5 +106,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,58 +1,61 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { ArrowRight, MapPin } from "lucide-react"
+import { useEffect, useState } from "react";
+import { ArrowRight, MapPin } from "lucide-react";
 
 const phrases = [
   "I design digital experiences.",
   "I build fast websites.",
-  "I craft beautiful brands.",
+  "I craft reliable architectures.",
   "I create intuitive interfaces.",
-]
+];
 
 export function HeroSection() {
-  const [currentPhrase, setCurrentPhrase] = useState(0)
-  const [displayText, setDisplayText] = useState("")
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [currentPhrase, setCurrentPhrase] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const phrase = phrases[currentPhrase]
+    const phrase = phrases[currentPhrase];
     const timeout = setTimeout(
       () => {
         if (!isDeleting) {
           if (displayText.length < phrase.length) {
-            setDisplayText(phrase.slice(0, displayText.length + 1))
+            setDisplayText(phrase.slice(0, displayText.length + 1));
           } else {
-            setTimeout(() => setIsDeleting(true), 2000)
+            setTimeout(() => setIsDeleting(true), 2000);
           }
         } else {
           if (displayText.length > 0) {
-            setDisplayText(displayText.slice(0, -1))
+            setDisplayText(displayText.slice(0, -1));
           } else {
-            setIsDeleting(false)
-            setCurrentPhrase((prev) => (prev + 1) % phrases.length)
+            setIsDeleting(false);
+            setCurrentPhrase((prev) => (prev + 1) % phrases.length);
           }
         }
       },
       isDeleting ? 50 : 100,
-    )
+    );
 
-    return () => clearTimeout(timeout)
-  }, [displayText, isDeleting, currentPhrase])
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentPhrase]);
 
   const scrollToProjects = () => {
-    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
-  }
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const scrollToConnect = () => {
-    document.getElementById("connect")?.scrollIntoView({ behavior: "smooth" })
-  }
+    document.getElementById("connect")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 lg:px-8 pt-16">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center px-6 lg:px-8 pt-16"
+    >
       <div className="max-w-4xl mx-auto text-center">
         <p className="text-sm uppercase tracking-wider text-muted-foreground mb-8 animate-fade-in">
-          Product Designer & Developer
+          Full-Stack Developer | Backend Engineer | Deep Learning Enthusiast
         </p>
 
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight animate-fade-in-delay-1">
@@ -61,8 +64,9 @@ export function HeroSection() {
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed text-balance animate-fade-in-delay-2">
-          I'm a creative professional passionate about crafting exceptional digital experiences that blend beautiful
-          design with powerful functionality.
+          A full-stack developer passionate about building scalable backend
+          systems, crafting intuitive web experiences, and turning complex ideas
+          into practical products.
         </p>
 
         <div className="flex flex-col items-center gap-3 mb-12 animate-fade-in-delay-3">
@@ -70,7 +74,7 @@ export function HeroSection() {
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1.5">
               <MapPin className="w-4 h-4" />
-              <span>San Francisco, CA</span>
+              <span>Delhi, India</span>
             </div>
             <span className="hidden sm:inline">•</span>
             <div className="flex items-center gap-1.5">
@@ -97,5 +101,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
